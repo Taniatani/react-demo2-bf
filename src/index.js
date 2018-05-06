@@ -10,13 +10,27 @@ import ReactDOM from 'react-dom'
 
 //function
  //Tuto : 6
-function test(place ='Zootopia', car = 'flying'){
-  return <div>
-          <h2>She wanna go somewhere like {place} by {car} . </h2>
-          <p className = "test_msg">Can you hear me?!!</p>
-        </div>
+// function test(place ='Zootopia', car = 'flying'){
+//   return <div>
+//           <h2>She wanna go somewhere like {place} by {car} . </h2>
+//           <p className = "test_msg">Can you hear me?!!</p>
+//         </div>
+// }
+// ReactDOM.render(
+//   test("Cox's Bazar" , "train"),
+//   document.getElementById('root')
+// );
+
+
+ //Tuto : 7 - clock app
+
+let clock = function () {
+  return <h2>Current time is {new Date().toLocaleTimeString()}</h2>
 }
-ReactDOM.render(
-  test("Cox's Bazar" , "train"),
-  document.getElementById('root')
-);
+
+setInterval (function(){
+ ReactDOM.render(
+   clock(),
+   document.getElementById('root')
+ );
+},1000);
