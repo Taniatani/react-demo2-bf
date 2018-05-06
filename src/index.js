@@ -24,13 +24,44 @@ import ReactDOM from 'react-dom'
 
  //Tuto : 7 - clock app
 
-let clock = function () {
-  return <h2>Current time is {new Date().toLocaleTimeString()}</h2>
-}
+// let clock = function () {
+//   return <h2>Current time is {new Date().toLocaleTimeString()}</h2>
+// }
+//
+// setInterval (function(){
+//  ReactDOM.render(
+//    clock(),
+//    document.getElementById('root')
+//  );
+// },1000);
 
-setInterval (function(){
- ReactDOM.render(
-   clock(),
-   document.getElementById('root')
- );
-},1000);
+ //Tuto : 8 - Comps and props
+//component by using function
+// function Place(props){
+//   return<h2>She wanna go somewhere like {props.name}.</h2>
+// }
+
+//component by using class
+// class Place extends React.Component{
+//   render() {
+//     return<h2>She wanna go somewhere like {this.props.name}.</h2>
+//   }
+// }
+
+
+// component in another component
+function Place(props){
+  return<h2>She wanna go somewhere like {props.name} by {props.car}</h2>
+ }
+
+ function AllPlace(props){
+   return<div>
+    <Place name = 'Island' car = 'air'/>
+    <Place name = 'Sea' car = 'Flying'/>
+   </div>
+  }
+
+ReactDOM.render(
+  <AllPlace/>,
+  document.getElementById('root')
+);
