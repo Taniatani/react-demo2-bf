@@ -50,18 +50,49 @@ import ReactDOM from 'react-dom'
 
 
 // component in another component
-function Place(props){
-  return<h2>She wanna go somewhere like {props.name} by {props.car}</h2>
- }
+// function Place(props){
+//   return<h2>She wanna go somewhere like {props.name} by {props.car}</h2>
+//  }
+//
+//  function AllPlace(props){
+//    return<div>
+//     <Place name = 'Island' car = 'air'/>
+//     <Place name = 'Sea' car = 'Flying'/>
+//    </div>
+//   }
+//
+// ReactDOM.render(
+//   <AllPlace/>,
+//   document.getElementById('root')
+//
+// );
 
- function AllPlace(props){
-   return<div>
-    <Place name = 'Island' car = 'air'/>
-    <Place name = 'Sea' car = 'Flying'/>
-   </div>
+ //Tuto : 9 - States and lifecycle
+
+
+// function Clock() {
+//    return <h2>Current time is {new Date().toLocaleTimeString()}</h2>
+//  }
+
+class Clock extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      date : new Date()
+    }
   }
+  render() {
+    return <h2>Current time is {this.state.date.toLocaleTimeString()}</h2>
+  }
+}
+function time() {
+  ReactDOM.render(
+    <Clock/>,
+    document.getElementById('root')
+  );
+}
+ // setInterval (function(){
+ // time();
+ // },1000);
 
-ReactDOM.render(
-  <AllPlace/>,
-  document.getElementById('root')
-);
+ setInterval (time,1000);
