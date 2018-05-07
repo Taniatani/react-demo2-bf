@@ -81,18 +81,35 @@ class Clock extends React.Component {
       date : new Date()
     }
   }
+
+  componentDidMount(){
+    this.timer = setInterval( () => this.start(), 1000);
+  }
+
+//for removing timer
+
+   componentWillUnmount(){
+     clearInterval(this.timer);
+   }
+
+  start(){
+    this.setState({
+      date: new Date()
+    });
+  }
+
   render() {
     return <h2>Current time is {this.state.date.toLocaleTimeString()}</h2>
   }
 }
-function time() {
+
   ReactDOM.render(
     <Clock/>,
     document.getElementById('root')
   );
-}
+
  // setInterval (function(){
  // time();
  // },1000);
 
- setInterval (time,1000);
+ //setInterval (time,1000);
